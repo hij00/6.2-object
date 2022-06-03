@@ -7,8 +7,54 @@
     <title>ex1</title>
 </head>
 <body>
+    <div class="wrap">
+        <h3>회원정보</h3>
+        <p>식별번호 : <span class="id"></span></p>
+        <p>아이디 : <span class="username"></span></p>
+        <p>패스워드 : <span class="password"></span></p>
+        <p>이름 : <span class="name"></span></p>
+    </div>
+
     
-    <script></script>
+    <script>
+
+        const users = [
+            {
+                id: 0,
+                username: 'hee',
+                password: '123',
+                name: '히히'
+            },
+            {
+                id: 1,
+                username: 'jeong',
+                password: '0802',
+                name: '종종'
+            },
+            {
+                id: 2,
+                username: 'choi',
+                password: '000',
+                name: '초이'
+            }
+        ]        
+        // id(고유값, 중복안됨), username, pw, name
+
+        // 문제 : 고유값 1번 유저의 모든 정보를 콘솔로 찍기
+        // console.log(users[1])
+        // console.log(users[1].name)
+
+        const userId = document.querySelector('.id')       
+        const uName = document.querySelector('.username')
+        const uPw = document.querySelector('.password')
+        const name = document.querySelector('.name')
+
+        // userId.innerHTML = users[1].id
+        // uName.innerHTML = users[1].username
+        // uPw.innerHTML = users[1].password
+        // name.innerHTML = users[1].name
+
+    </script>
 
 </body>
 </html>
