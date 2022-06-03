@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input</title>
+</head>
+<body>
+    
+    <form>
+        <input type="text" placeholder="글을 입력해주세요">
+        <button>등록</button>
+        <!-- (= input type = "submit") -->
+    </form>
+    <br/>
+    <!-- => 스타일에서 블럭으로 바꾸기 -->
+    <div class="comment_wrap"></div>
+
+    <script>
+
+        // 폼태그는 서브밋(제출)하면 새로고침됨 => 새로고침 없애기
+        // 인풋태그 입력 값 가져오기
+        // 등록하기 => 클릭이벤트는 아님, 입력 값을 전달(제출) => submit event
+        const formEl =document.querySelector('form')
+        const inputEl = document.querySelector('input')
+        const btnEl = document.querySelector('button')
+        const commentEl = document.querySelector('.comment_wrap')
+
+        const handleClick = (e) => {
+            e.preventDefault()
+            // 태그가 가지고 있는 기본 이벤트를 적용시키지 않음 ex) a, form
+            // form태그를 제어할때(새로고침 특성을 비활성화) 이벤트를 button이 아니라 form에 이벤트를 걸어야함 
+
+            // console.log('click')
+            // =>폼태그의 새로고침하면 없어지는 특성 때문에 확인 불가능
+
+            // console.log(inEl.value)
+            // input의 속성 중 value라는 미리 찍히는 속성, input태그에 작성한 내용을 가져옴
+
+            const inputValue = inputEl.value
+            console.log(inputValue)
+            // inValue가 사용자가 입력한 값
+            // 글이 남아있음 => 인풋의 벨류값을 빈칸으로
+            inputEl.value = ""
+            // 인풋에 특정 값을 넣길 원하면 ""안에 글을 적으면 됨, 필요 없다면 빈칸으로
+            // 벨류값을 변수에 저장한 뒤, 인풋 벨류 값을 빈값으로 변경
+
+            // commentEl.innerHTML = inputValue
+
+            // 댓글을 저장할 태그 생성 => creatEl
+            const hEl = document.createElement('h5')
+
+            // // 생성한 태그 안쪽으로 벨류값작성
+            hEl.innerHTML = inputValue
+            // console.log(hEl)
+
+            // // 코멘트 자식으로 생성한 태그 넣기 => 실행할때 마다 엘리먼트 생성, 엘리먼트 안쪽으로 입력내용 나오는
+            commentEl.appendChild(hEl)
+        }
+
+        formEl.addEventListener('submit', handleClick)
+
+    </script>
+
+</body>
+</html>
